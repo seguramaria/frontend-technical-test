@@ -2,6 +2,9 @@ import { faker } from "@faker-js/faker";
 
 type AnimalKey = keyof typeof faker.animal;
 
+const animalTypes = Object.keys(faker.animal);
+console.log(animalTypes);
+
 const getImage = (type: AnimalKey) =>
   faker.image.urlLoremFlickr({
     width: 200,

@@ -3,7 +3,7 @@ import Image from "next/image";
 import localFont from "next/font/local";
 import styles from "@/styles/Home.module.css";
 import fetchData from "../utils/getAnimals";
-import { Search } from "@/components/Search/Search";
+import { Search } from "@/components/Search/search";
 
 const loadAnimals = async () => {
   const animals = await fetchData("cat");
@@ -44,6 +44,7 @@ export default function Home() {
             height={38}
             priority
           />
+
           <Search />
         </main>
         <footer className={styles.footer}>

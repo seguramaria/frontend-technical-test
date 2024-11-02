@@ -40,3 +40,21 @@ a {
     color-scheme: dark;
   }
 }
+
+input:focus {
+  border: none;
+  outline: none;
+}
+
+input {
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  outline: none;
+  -moz-appearance: textfield;
+}
+
+input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  display: none;
+}
