@@ -21,7 +21,11 @@ export const Search = () => {
           onChange={() => setSearchValue(inputRef.current?.value || "")}
         />
       </div>
-      <button type="submit" onSubmit={handleSubmit}>
+      <button
+        type="submit"
+        onSubmit={handleSubmit}
+        disabled={searchValue === ""}
+      >
         Buscar
       </button>
     </form>
