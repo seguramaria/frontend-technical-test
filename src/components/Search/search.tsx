@@ -45,6 +45,7 @@ export const Search = () => {
         type="submit"
         onSubmit={handleSubmit}
         disabled={searchValue === ""}
+        className={styles.submitButton}
       >
         Buscar
       </button>
