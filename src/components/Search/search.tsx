@@ -1,15 +1,19 @@
 import { FormEvent, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import styles from "./search.module.css";
 
 export const Search = () => {
   const [searchValue, setSearchValue] = useState("");
+  const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleSubmit = (
     event: FormEvent<HTMLFormElement> | FormEvent<HTMLButtonElement>
   ) => {
     event.preventDefault();
-    console.log("results", searchValue);
+    if (searchValue) {
+      router.push(`/search?q=${searchValue}`);
+    }
   };
 
   const clearSearch = () => {
