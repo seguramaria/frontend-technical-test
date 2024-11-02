@@ -51,6 +51,12 @@
 }
 
 .submitButton:hover {
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
   background-color: #f8f8f8;
+}
+
+.submitButton:disabled {
+  background-color: #f8f8f8;
+  cursor: default;
+  box-shadow: none;
 }
