@@ -7,6 +7,16 @@
   max-width: 1280px;
 }
 
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.searchQuery {
+  font-weight: 600;
+}
+
 .resultsList {
   display: flex;
   flex-direction: column;

@@ -10,13 +10,25 @@ export default function SearchResults() {
   const searchParams = useSearchParams();
   const searchQuery = searchParams.get("q") || undefined;
   const [results, setResults] = useState<AnimalResult[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const animalTypes = Object.keys(faker.animal);
 
   const loadResults = async (searchQuery: string) => {
-    if (animalTypes.includes(searchQuery)) {
-      const results = await fetchData(searchQuery as AnimalKey);
-      setResults(results);
+    setIsLoading(true);
+    setError(null);
+    try {
+      if (animalTypes.includes(searchQuery)) {
+        const results = await fetchData(searchQuery as AnimalKey);
+        setResults(results);
+      } else {
+        setError("No results found for");
+      }
+    } catch {
+      setError("Loading error, please try again");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -30,7 +42,13 @@ export default function SearchResults() {
     <>
       <Header searchQuery={searchQuery} />
       <main>
-        <ResultList results={results} isLoading={true} />
+        <ResultList
+          results={results}
+          isLoading={isLoading}
+          searchQuery={searchQuery}
+          error={error}
+          animalTypes={animalTypes.slice(1, -1)}
+        />
       </main>
     </>
   );

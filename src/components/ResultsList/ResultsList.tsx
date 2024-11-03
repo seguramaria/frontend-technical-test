@@ -8,9 +8,18 @@ import { Skeleton } from "../Skeleton/Skeleton";
 type Props = {
   results: AnimalResult[];
   isLoading: boolean;
+  searchQuery?: string;
+  error?: string | null;
+  animalTypes: string[];
 };
 
-export const ResultList = ({ results, isLoading }: Props) => {
+export const ResultList = ({
+  results,
+  isLoading,
+  searchQuery,
+  error,
+  animalTypes,
+}: Props) => {
   const [selectedItem, setSelectedItem] = useState<AnimalResult | null>(null);
 
   const handleSelect = (id: number) => {
@@ -24,43 +33,60 @@ export const ResultList = ({ results, isLoading }: Props) => {
 
   return (
     <div className={styles.resultsContainer}>
-      {isLoading ? (
-        <Skeleton />
+      {error || searchQuery === undefined ? (
+        <div className={styles.errorContainer}>
+          {searchQuery && (
+            <p>
+              {error}{" "}
+              <span className={styles.searchQuery}>"{searchQuery}"</span>
+            </p>
+          )}
+          <p>
+            Try looking for:{" "}
+            <span className={styles.searchQuery}>{animalTypes.join(", ")}</span>
+          </p>
+        </div>
       ) : (
         <>
-          <ul className={styles.resultsList}>
-            {results.map((result) => (
-              <ResultItem
-                key={result.id}
-                id={result.id}
-                url={result.url}
-                title={result.title}
-                description={result.description}
-                handleSelect={(id) => handleSelect(id)}
-              />
-            ))}
-          </ul>
-          <div className={styles.resultPreviewContainer}>
-            {selectedItem && (
-              <ResultPreview
-                img={selectedItem.image}
-                url={selectedItem.url}
-                title={selectedItem.title}
-                description={selectedItem.description}
-              />
-            )}
-          </div>
-          {selectedItem && (
-            <div className={styles.overlay} onClick={handleClosePreview}>
-              <div className={styles.resultPreview}>
-                <ResultPreview
-                  img={selectedItem.image}
-                  url={selectedItem.url}
-                  title={selectedItem.title}
-                  description={selectedItem.description}
-                />
+          {isLoading ? (
+            <Skeleton />
+          ) : (
+            <>
+              <ul className={styles.resultsList}>
+                {results.map((result) => (
+                  <ResultItem
+                    key={result.id}
+                    id={result.id}
+                    url={result.url}
+                    title={result.title}
+                    description={result.description}
+                    handleSelect={(id) => handleSelect(id)}
+                  />
+                ))}
+              </ul>
+              <div className={styles.resultPreviewContainer}>
+                {selectedItem && (
+                  <ResultPreview
+                    img={selectedItem.image}
+                    url={selectedItem.url}
+                    title={selectedItem.title}
+                    description={selectedItem.description}
+                  />
+                )}
               </div>
-            </div>
+              {selectedItem && (
+                <div className={styles.overlay} onClick={handleClosePreview}>
+                  <div className={styles.resultPreview}>
+                    <ResultPreview
+                      img={selectedItem.image}
+                      url={selectedItem.url}
+                      title={selectedItem.title}
+                      description={selectedItem.description}
+                    />
+                  </div>
+                </div>
+              )}
+            </>
           )}
         </>
       )}
