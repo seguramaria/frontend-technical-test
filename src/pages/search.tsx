@@ -3,7 +3,7 @@ import { useSearchParams } from "next/navigation";
 import fetchData from "@/utils/getAnimals";
 import { AnimalKey, AnimalResult } from "@/types";
 import { faker } from "@faker-js/faker";
-import { Header } from "@/components/Header/header";
+import { Header } from "@/components/Header/Header";
 
 export default function SearchResults() {
   const searchParams = useSearchParams();

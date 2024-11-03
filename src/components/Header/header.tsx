@@ -1,6 +1,6 @@
 import Image from "next/image";
-import styles from "./header.module.css";
-import { Search } from "@/components/Search/search";
+import styles from "./Header.module.css";
+import { Search } from "@/components/Search/Search";
 
 export const Header = () => {
   return (
