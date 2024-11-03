@@ -30,7 +30,7 @@ export default function SearchResults() {
     <>
       <Header searchQuery={searchQuery} />
       <main>
-        <ResultList results={results} />
+        <ResultList results={results} isLoading={true} />
       </main>
     </>
   );

@@ -1,0 +1,44 @@
+.skeleton {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.skeletonContainer {
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.skeletonItem {
+  height: 20px;
+  background: #e0e0e0;
+  border-radius: 4px;
+  animation: pulse 1.5s infinite;
+}
+
+.skeletonItemSmall {
+  width: 20%;
+}
+
+.skeletonItemMedium {
+  width: 60%;
+}
+
+.skeletonItemLarge {
+  width: 70%;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
