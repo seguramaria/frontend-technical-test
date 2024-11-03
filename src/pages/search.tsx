@@ -8,7 +8,7 @@ import { ResultList } from "@/components/ResultsList/ResultsList";
 
 export default function SearchResults() {
   const searchParams = useSearchParams();
-  const searchQuery = searchParams.get("q");
+  const searchQuery = searchParams.get("q") || undefined;
   const [results, setResults] = useState<AnimalResult[]>([]);
 
   const animalTypes = Object.keys(faker.animal);
@@ -28,7 +28,7 @@ export default function SearchResults() {
 
   return (
     <>
-      <Header />
+      <Header searchQuery={searchQuery} />
       <main>
         <ResultList results={results} />
       </main>

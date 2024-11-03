@@ -1,15 +1,19 @@
-import { FormEvent, useRef, useState } from "react";
+import { FormEvent, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import styles from "./Search.module.css";
 
 type Props = {
   isResultsPage?: boolean;
+  searchQuery?: string;
 };
 
-export const Search = ({ isResultsPage = false }: Props) => {
-  const [searchValue, setSearchValue] = useState("");
+export const Search = ({ isResultsPage, searchQuery }: Props) => {
+  const [searchValue, setSearchValue] = useState<string>(searchQuery || "");
   const router = useRouter();
-  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    setSearchValue(searchQuery || "");
+  }, [searchQuery]);
 
   const handleSubmit = (
     event: FormEvent<HTMLFormElement> | FormEvent<HTMLButtonElement>
@@ -22,7 +26,6 @@ export const Search = ({ isResultsPage = false }: Props) => {
 
   const clearSearch = () => {
     setSearchValue("");
-    inputRef.current?.focus();
   };
 
   return (
@@ -37,11 +40,10 @@ export const Search = ({ isResultsPage = false }: Props) => {
           className={styles.searchIcon}
         />
         <input
-          ref={inputRef}
           type="search"
           className={styles.input}
           value={searchValue}
-          onChange={() => setSearchValue(inputRef.current?.value || "")}
+          onChange={(e) => setSearchValue(e.target.value)}
         />
         <button
           type="button"
@@ -55,7 +57,6 @@ export const Search = ({ isResultsPage = false }: Props) => {
       {!isResultsPage && (
         <button
           type="submit"
-          onSubmit={handleSubmit}
           disabled={searchValue === ""}
           className={styles.submitButton}
         >
