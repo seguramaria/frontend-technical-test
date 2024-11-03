@@ -4,6 +4,7 @@ import fetchData from "@/utils/getAnimals";
 import { AnimalKey, AnimalResult } from "@/types";
 import { faker } from "@faker-js/faker";
 import { Header } from "@/components/Header/Header";
+import { ResultList } from "@/components/ResultList/ResultList";
 
 export default function SearchResults() {
   const searchParams = useSearchParams();
@@ -29,11 +30,7 @@ export default function SearchResults() {
     <>
       <Header />
       <main>
-        <div>
-          {results.map((result) => (
-            <li key={result.id}>{result.title}</li>
-          ))}
-        </div>
+        <ResultList results={results} />
       </main>
     </>
   );
