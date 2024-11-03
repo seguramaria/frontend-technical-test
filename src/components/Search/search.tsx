@@ -26,7 +26,10 @@ export const Search = ({ isResultsPage = false }: Props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className={styles.form}>
+    <form
+      onSubmit={handleSubmit}
+      className={`${styles.form} ${isResultsPage ? styles.formResults : ""}`}
+    >
       <div className={styles.formBox}>
         <img
           src={"search.svg"}

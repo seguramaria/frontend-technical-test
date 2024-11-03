@@ -6,6 +6,10 @@
   justify-content: center;
 }
 
+.formResults {
+  align-items: flex-start;
+}
+
 .formBox {
   width: 100%;
   display: flex;
