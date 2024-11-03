@@ -2,7 +2,11 @@ import { FormEvent, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "./search.module.css";
 
-export const Search = () => {
+type Props = {
+  isResultsPage?: boolean;
+};
+
+export const Search = ({ isResultsPage = false }: Props) => {
   const [searchValue, setSearchValue] = useState("");
   const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
@@ -45,14 +49,16 @@ export const Search = () => {
           ✕
         </button>
       </div>
-      <button
-        type="submit"
-        onSubmit={handleSubmit}
-        disabled={searchValue === ""}
-        className={styles.submitButton}
-      >
-        Buscar
-      </button>
+      {!isResultsPage && (
+        <button
+          type="submit"
+          onSubmit={handleSubmit}
+          disabled={searchValue === ""}
+          className={styles.submitButton}
+        >
+          Buscar
+        </button>
+      )}
     </form>
   );
 };

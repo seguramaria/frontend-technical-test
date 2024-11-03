@@ -7,33 +7,46 @@
 }
 
 .formBox {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   border: 1px solid lightgray;
   border-radius: 1.5rem;
   max-width: 584px;
-  min-height: 44px;
 }
 
 .input {
   width: 100%;
-  padding: 0.75rem;
+  padding: 0.25rem 0.5rem;
 }
 
 .searchIcon {
-  padding: 0.75rem;
+  padding: 0.25rem 0.5rem;
 }
 
 .clearButton {
   background: transparent;
   border: none;
   font-size: 1rem;
-  padding: 0.75rem 1.5rem;
+  padding: 0.25rem 1rem;
   cursor: pointer;
   color: #666;
   visibility: hidden;
   font-weight: 600;
+}
+
+@media (min-width: 600px) {
+  .clearButton {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+  }
+  .searchIcon {
+    padding: 0.75rem;
+  }
+  .input {
+    padding: 0.75rem;
+  }
 }
 
 .clearButton:not(:disabled) {
