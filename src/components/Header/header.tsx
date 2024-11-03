@@ -11,6 +11,7 @@ export const Header = () => {
           alt="Google logo"
           width={92}
           height={33}
+          priority
         />
         <Search isResultsPage />
       </div>
