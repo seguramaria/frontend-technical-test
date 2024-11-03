@@ -16,9 +16,13 @@ export const ResultList = ({ results }: Props) => {
     if (item) return setSelectedItem(item);
   };
 
+  const handleClosePreview = () => {
+    setSelectedItem(null);
+  };
+
   return (
     <div className={styles.resultsContainer}>
-      <ul>
+      <ul className={styles.resultsList}>
         {results.map((result) => (
           <ResultItem
             key={result.id}
@@ -30,7 +34,7 @@ export const ResultList = ({ results }: Props) => {
           />
         ))}
       </ul>
-      <div className={styles.resultPreview}>
+      <div className={styles.resultPreviewContainer}>
         {selectedItem && (
           <ResultPreview
             img={selectedItem.image}
@@ -40,6 +44,18 @@ export const ResultList = ({ results }: Props) => {
           />
         )}
       </div>
+      {selectedItem && (
+        <div className={styles.overlay} onClick={handleClosePreview}>
+          <div className={styles.resultPreview}>
+            <ResultPreview
+              img={selectedItem.image}
+              url={selectedItem.url}
+              title={selectedItem.title}
+              description={selectedItem.description}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
