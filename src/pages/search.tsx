@@ -42,6 +42,7 @@ export default function SearchResults() {
           currentPage={currentPage}
           handleNextPage={handleNextPage}
           handlePrevPage={handlePrevPage}
+          disableButton={!!error}
           disableNextButton={disableNextButton}
           disablePrevButton={disablePrevButton}
         />

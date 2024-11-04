@@ -11,6 +11,7 @@ export const useFetchData = (searchQuery?: string) => {
 
   const loadResults = async (searchQuery: string) => {
     setIsLoading(true);
+    setError(null);
     try {
       if (animalTypes.includes(searchQuery)) {
         const fetchedResults = await fetchData(searchQuery as AnimalKey);
