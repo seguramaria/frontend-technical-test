@@ -14,6 +14,10 @@ export const usePagination = (
     setPaginatedResults(results.slice(start, end));
   }, [currentPage, results, resultsPerPage]);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [currentPage]);
+
   const handleNextPage = () => {
     setCurrentPage((prevPage) => prevPage + 1);
   };
