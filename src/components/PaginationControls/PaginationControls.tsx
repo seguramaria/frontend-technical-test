@@ -1,3 +1,5 @@
+import styles from "./PaginationControls.module.css";
+
 type Props = {
   currentPage: number;
   handleNextPage: () => void;
@@ -14,13 +16,23 @@ export const PaginationControl = ({
   disableNextButton,
 }: Props) => {
   return (
-    <div>
-      <button onClick={handlePrevPage} disabled={disablePrevButton}>
-        Prev
+    <div className={styles.paginationControl}>
+      <button
+        onClick={handlePrevPage}
+        disabled={disablePrevButton}
+        className={styles.button}
+      >
+        {!disablePrevButton && <img src="/prev.svg" />}
+        <span>Prev</span>
       </button>
       <span>{currentPage}</span>
-      <button onClick={handleNextPage} disabled={disableNextButton}>
-        Next
+      <button
+        onClick={handleNextPage}
+        disabled={disableNextButton}
+        className={styles.button}
+      >
+        <span> Next</span>
+        {!disableNextButton && <img src="/next.svg" />}
       </button>
     </div>
   );
