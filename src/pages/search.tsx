@@ -1,47 +1,21 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Head from "next/head";
-import fetchData from "@/utils/getAnimals";
-import { AnimalKey, AnimalResult } from "@/types";
-import { faker } from "@faker-js/faker";
+import { AnimalResult } from "@/types";
 import { Header } from "@/components/Header/Header";
 import { ResultList } from "@/components/ResultsList/ResultsList";
 import { PaginationControl } from "@/components/PaginationControls/PaginationControls";
+import { useFetchData } from "@/hooks/useFetchData";
 
 export default function SearchResults() {
   const searchParams = useSearchParams();
   const searchQuery = searchParams.get("q") || undefined;
-  const [results, setResults] = useState<AnimalResult[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
   const [paginatedResults, setPaginatedResults] = useState<AnimalResult[]>([]);
   const [currentPage, setCurrentPage] = useState(0);
 
+  const { results, isLoading, error, animalTypes } = useFetchData(searchQuery);
+
   const RESULTS_PER_PAGE = 10;
-  const animalTypes = Object.keys(faker.animal);
-
-  const loadResults = async (searchQuery: string) => {
-    setIsLoading(true);
-    setError(null);
-    try {
-      if (animalTypes.includes(searchQuery)) {
-        const results = await fetchData(searchQuery as AnimalKey);
-        setResults(results);
-      } else {
-        setError("No results found for");
-      }
-    } catch {
-      setError("Loading error, please try again");
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    if (searchQuery) {
-      loadResults(searchQuery);
-    }
-  }, [searchQuery]);
 
   useEffect(() => {
     const start = currentPage * RESULTS_PER_PAGE;
@@ -72,7 +46,7 @@ export default function SearchResults() {
           isLoading={isLoading}
           searchQuery={searchQuery}
           error={error}
-          animalTypes={animalTypes.slice(1, -1)}
+          animalTypes={animalTypes}
         />
         <PaginationControl
           currentPage={currentPage}
