@@ -6,6 +6,7 @@ import { AnimalKey, AnimalResult } from "@/types";
 import { faker } from "@faker-js/faker";
 import { Header } from "@/components/Header/Header";
 import { ResultList } from "@/components/ResultsList/ResultsList";
+import { PaginationControl } from "@/components/PaginationControls/PaginationControls";
 
 export default function SearchResults() {
   const searchParams = useSearchParams();
@@ -13,7 +14,10 @@ export default function SearchResults() {
   const [results, setResults] = useState<AnimalResult[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [paginatedResults, setPaginatedResults] = useState<AnimalResult[]>([]);
+  const [currentPage, setCurrentPage] = useState(0);
 
+  const RESULTS_PER_PAGE = 10;
   const animalTypes = Object.keys(faker.animal);
 
   const loadResults = async (searchQuery: string) => {
@@ -39,6 +43,20 @@ export default function SearchResults() {
     }
   }, [searchQuery]);
 
+  useEffect(() => {
+    const start = currentPage * RESULTS_PER_PAGE;
+    const end = start + RESULTS_PER_PAGE;
+    setPaginatedResults(results.slice(start, end));
+  }, [currentPage, results]);
+
+  const handleNextPage = () => {
+    setCurrentPage((prevPage) => prevPage + 1);
+  };
+
+  const handlePrevPage = () => {
+    setCurrentPage((prevPage) => prevPage - 1);
+  };
+
   return (
     <>
       <Head>
@@ -50,11 +68,18 @@ export default function SearchResults() {
       <Header searchQuery={searchQuery} />
       <main>
         <ResultList
-          results={results}
+          results={paginatedResults}
           isLoading={isLoading}
           searchQuery={searchQuery}
           error={error}
           animalTypes={animalTypes.slice(1, -1)}
+        />
+        <PaginationControl
+          currentPage={currentPage}
+          resultsLength={results.length}
+          resultsPerPage={RESULTS_PER_PAGE}
+          handleNextPage={handleNextPage}
+          handlePrevPage={handlePrevPage}
         />
       </main>
     </>
