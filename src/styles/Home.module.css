@@ -3,7 +3,8 @@
   align-items: center;
   justify-items: center;
   min-height: calc(100svh - 120px);
-  padding: 80px;
+  padding: 32px;
+  padding-bottom: 80px;
   gap: 64px;
 }
 
@@ -16,13 +17,8 @@
   gap: 32px;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .page {
-    padding: 32px;
-    padding-bottom: 80px;
-  }
-
-  .main {
-    align-items: center;
+    padding-bottom: 32px;
   }
 }

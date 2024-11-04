@@ -17,6 +17,7 @@ export const Header = ({ isResultsPage, searchQuery }: Props) => {
             <Image
               src="/google_logo.png"
               alt="Google logo"
+              className={styles.logo}
               width={92}
               height={33}
               priority
