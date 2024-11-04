@@ -28,8 +28,10 @@ export const Header = ({ isResultsPage, searchQuery }: Props) => {
             title="Go to Agile content"
             target="_blank"
           >
-            <span className={styles.title}>Agile Content</span>{" "}
-            <span>Frontend test</span>
+            <div className={styles.titleContainer}>
+              <span className={styles.title}>Agile Content</span>
+              <span>Frontend test</span>
+            </div>
           </Link>
         )}
 
@@ -39,15 +41,16 @@ export const Header = ({ isResultsPage, searchQuery }: Props) => {
         <Image
           src="/apps_menu.svg"
           alt="Open apps menu"
-          width={30}
-          height={30}
+          width={24}
+          height={24}
         />
-        <Image
-          src="/avatar.svg"
-          alt="Account settings"
-          width={30}
-          height={30}
-        />
+        <div className={styles.avatarContainer}>
+          <img
+            src="/avatar.svg"
+            alt="Account settings"
+            className={styles.avatar}
+          />
+        </div>
       </div>
     </header>
   );
