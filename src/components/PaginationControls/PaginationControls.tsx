@@ -1,30 +1,25 @@
-import React from "react";
-
 type Props = {
   currentPage: number;
-  resultsLength: number;
-  resultsPerPage: number;
   handleNextPage: () => void;
   handlePrevPage: () => void;
+  disableNextButton: boolean;
+  disablePrevButton: boolean;
 };
 
 export const PaginationControl = ({
   currentPage,
-  resultsLength,
-  resultsPerPage,
   handleNextPage,
   handlePrevPage,
+  disablePrevButton,
+  disableNextButton,
 }: Props) => {
   return (
     <div>
-      <button onClick={handlePrevPage} disabled={currentPage === 0}>
+      <button onClick={handlePrevPage} disabled={disablePrevButton}>
         Prev
       </button>
       <span>{currentPage}</span>
-      <button
-        onClick={handleNextPage}
-        disabled={(currentPage + 1) * resultsPerPage >= resultsLength}
-      >
+      <button onClick={handleNextPage} disabled={disableNextButton}>
         Next
       </button>
     </div>

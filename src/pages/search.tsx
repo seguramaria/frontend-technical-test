@@ -1,35 +1,24 @@
-import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Head from "next/head";
-import { AnimalResult } from "@/types";
 import { Header } from "@/components/Header/Header";
 import { ResultList } from "@/components/ResultsList/ResultsList";
 import { PaginationControl } from "@/components/PaginationControls/PaginationControls";
 import { useFetchData } from "@/hooks/useFetchData";
+import { usePagination } from "@/hooks/usePagination";
 
 export default function SearchResults() {
   const searchParams = useSearchParams();
   const searchQuery = searchParams.get("q") || undefined;
-  const [paginatedResults, setPaginatedResults] = useState<AnimalResult[]>([]);
-  const [currentPage, setCurrentPage] = useState(0);
 
   const { results, isLoading, error, animalTypes } = useFetchData(searchQuery);
-
-  const RESULTS_PER_PAGE = 10;
-
-  useEffect(() => {
-    const start = currentPage * RESULTS_PER_PAGE;
-    const end = start + RESULTS_PER_PAGE;
-    setPaginatedResults(results.slice(start, end));
-  }, [currentPage, results]);
-
-  const handleNextPage = () => {
-    setCurrentPage((prevPage) => prevPage + 1);
-  };
-
-  const handlePrevPage = () => {
-    setCurrentPage((prevPage) => prevPage - 1);
-  };
+  const {
+    currentPage,
+    paginatedResults,
+    handleNextPage,
+    handlePrevPage,
+    disableNextButton,
+    disablePrevButton,
+  } = usePagination(results, 10);
 
   return (
     <>
@@ -50,10 +39,10 @@ export default function SearchResults() {
         />
         <PaginationControl
           currentPage={currentPage}
-          resultsLength={results.length}
-          resultsPerPage={RESULTS_PER_PAGE}
           handleNextPage={handleNextPage}
           handlePrevPage={handlePrevPage}
+          disableNextButton={disableNextButton}
+          disablePrevButton={disablePrevButton}
         />
       </main>
     </>
