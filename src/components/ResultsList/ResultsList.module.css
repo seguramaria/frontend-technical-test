@@ -5,7 +5,7 @@
   justify-content: space-between;
   padding: 1.5rem;
   max-width: 1280px;
-  min-height: calc(100svh - 204px);
+  min-height: calc(100svh - 235px);
 }
 
 .errorContainer {
@@ -44,9 +44,10 @@
   z-index: 1;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 700px) {
   .resultsContainer {
     padding: 1.5rem 7rem;
+    min-height: calc(100svh - 204px);
   }
 
   .resultsList {
