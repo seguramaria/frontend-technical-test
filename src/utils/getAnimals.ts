@@ -3,7 +3,7 @@ import { faker } from "@faker-js/faker";
 
 const getImage = (type: AnimalKey) =>
   faker.image.urlLoremFlickr({
-    width: 200,
+    width: 400,
     height: 200,
     category: type,
   });

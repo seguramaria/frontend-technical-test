@@ -44,12 +44,14 @@
   z-index: 1;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 768px) {
   .resultsContainer {
     padding: 1.5rem 7rem;
     min-height: calc(100svh - 204px);
   }
+}
 
+@media (min-width: 991px) {
   .resultsList {
     flex: 6;
   }
