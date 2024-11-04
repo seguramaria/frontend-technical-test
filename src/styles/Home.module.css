@@ -26,12 +26,6 @@
   grid-row-start: 2;
 }
 
-.footer {
-  grid-row-start: 3;
-  display: flex;
-  gap: 24px;
-}
-
 @media (max-width: 600px) {
   .page {
     padding: 32px;
@@ -40,11 +34,5 @@
 
   .main {
     align-items: center;
-  }
-
-  .footer {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
   }
 }

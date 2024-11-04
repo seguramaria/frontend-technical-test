@@ -5,6 +5,7 @@ import { ResultList } from "@/components/ResultsList/ResultsList";
 import { PaginationControl } from "@/components/PaginationControls/PaginationControls";
 import { useFetchData } from "@/hooks/useFetchData";
 import { usePagination } from "@/hooks/usePagination";
+import { Footer } from "@/components/Footer/Footer";
 
 export default function SearchResults() {
   const searchParams = useSearchParams();
@@ -45,6 +46,7 @@ export default function SearchResults() {
           disablePrevButton={disablePrevButton}
         />
       </main>
+      <Footer />
     </>
   );
 }

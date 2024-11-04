@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "@/styles/Home.module.css";
 import { Search } from "@/components/Search/Search";
+import { Footer } from "@/components/Footer/Footer";
 
 export default function Home() {
   return (
@@ -25,9 +26,7 @@ export default function Home() {
 
           <Search />
         </main>
-        <footer className={styles.footer}>
-          <p>Google</p>
-        </footer>
+        <Footer />
       </div>
     </>
   );
