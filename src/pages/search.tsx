@@ -29,7 +29,7 @@ export default function SearchResults() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header searchQuery={searchQuery} />
+      <Header searchQuery={searchQuery} isResultsPage />
       <main>
         <ResultList
           results={paginatedResults}

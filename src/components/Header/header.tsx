@@ -4,24 +4,36 @@ import { Search } from "@/components/Search/Search";
 import Link from "next/link";
 
 type Props = {
+  isResultsPage?: boolean;
   searchQuery?: string;
 };
 
-export const Header = ({ searchQuery }: Props) => {
+export const Header = ({ isResultsPage, searchQuery }: Props) => {
   return (
     <header className={styles.header}>
       <div className={styles.searchContainer}>
-        <Link href="/" title="Go to home page">
-          <Image
-            src="/google_logo.png"
-            alt="Google logo"
-            width={92}
-            height={33}
-            priority
-          />
-        </Link>
+        {isResultsPage ? (
+          <Link href="/" title="Go to home page">
+            <Image
+              src="/google_logo.png"
+              alt="Google logo"
+              width={92}
+              height={33}
+              priority
+            />
+          </Link>
+        ) : (
+          <Link
+            href="https://agilecontent.com/"
+            title="Go to Agile content"
+            target="_blank"
+          >
+            <span className={styles.title}>Agile Content</span>{" "}
+            <span>Frontend test</span>
+          </Link>
+        )}
 
-        <Search isResultsPage searchQuery={searchQuery} />
+        {isResultsPage && <Search isResultsPage searchQuery={searchQuery} />}
       </div>
       <div className={styles.accountContainer}>
         <Image

@@ -4,8 +4,14 @@
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid #e0e0e0;
+  position: fixed;
+  background-color: white;
+  position: relative;
 }
 
+.title {
+  font-weight: 600;
+}
 .searchContainer {
   width: 100%;
   display: flex;

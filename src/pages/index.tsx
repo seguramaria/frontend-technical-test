@@ -3,6 +3,7 @@ import Image from "next/image";
 import styles from "@/styles/Home.module.css";
 import { Search } from "@/components/Search/Search";
 import { Footer } from "@/components/Footer/Footer";
+import { Header } from "@/components/Header/Header";
 
 export default function Home() {
   return (
@@ -13,10 +14,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Header />
       <div className={styles.page}>
         <main className={styles.main}>
           <Image
-            className={styles.logo}
             src="/google_logo.png"
             alt="Google logo"
             width={272}
@@ -26,8 +27,8 @@ export default function Home() {
 
           <Search />
         </main>
-        <Footer />
       </div>
+      <Footer />
     </>
   );
 }
