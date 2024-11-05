@@ -20,6 +20,7 @@ const config: Config = {
   moduleFileExtensions: ["js", "jsx", "ts", "tsx"],
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
   collectCoverageFrom: ["components/**/*.{ts,tsx}", "pages/**/*.{ts,tsx}"],
+  transformIgnorePatterns: ["<rootDir>/node_modules/"],
 };
 
 export default config;
