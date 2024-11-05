@@ -2,9 +2,7 @@ import { useSearchParams } from "next/navigation";
 import Head from "next/head";
 import { Header } from "@/components/Header/Header";
 import { ResultList } from "@/components/ResultsList/ResultsList";
-import { PaginationControl } from "@/components/PaginationControls/PaginationControls";
 import { useFetchData } from "@/hooks/useFetchData";
-import { usePagination } from "@/hooks/usePagination";
 import { Footer } from "@/components/Footer/Footer";
 
 export default function SearchResults() {
@@ -14,14 +12,6 @@ export default function SearchResults() {
   const { results, isLoading, error, animalTypes } = useFetchData(
     searchQuery?.toLocaleLowerCase()
   );
-  const {
-    currentPage,
-    paginatedResults,
-    handleNextPage,
-    handlePrevPage,
-    disableNextButton,
-    disablePrevButton,
-  } = usePagination(results, 10);
 
   return (
     <>
@@ -34,23 +24,13 @@ export default function SearchResults() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header searchQuery={searchQuery} isResultsPage />
-      <main>
-        <ResultList
-          results={paginatedResults}
-          isLoading={isLoading}
-          searchQuery={searchQuery}
-          error={error}
-          animalTypes={animalTypes}
-        />
-        <PaginationControl
-          currentPage={currentPage}
-          handleNextPage={handleNextPage}
-          handlePrevPage={handlePrevPage}
-          disableButton={!!error}
-          disableNextButton={disableNextButton}
-          disablePrevButton={disablePrevButton}
-        />
-      </main>
+      <ResultList
+        results={results}
+        isLoading={isLoading}
+        searchQuery={searchQuery}
+        error={error}
+        animalTypes={animalTypes}
+      />
       <Footer />
     </>
   );
