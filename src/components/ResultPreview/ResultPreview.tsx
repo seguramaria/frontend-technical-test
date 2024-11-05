@@ -15,15 +15,17 @@ export const ResultPreview = ({ img, url, title, description }: Props) => {
         <Image
           src={img}
           alt={`${title} img`}
-          className={styles.img}
-          width={400}
-          height={200}
-          loading="lazy"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 30vw"
+          style={{ objectFit: "cover", padding: "8px 8px 0 8px" }}
+          priority
         />
       </div>
-      <div className={styles.url}>{url}</div>
-      <div className={styles.title}>{title}</div>
-      <div className={styles.description}>{description}</div>
+      <div className={styles.content}>
+        <div className={styles.url}>{url}</div>
+        <div className={styles.title}>{title}</div>
+        <div className={styles.description}>{description}</div>
+      </div>
     </div>
   );
 };
