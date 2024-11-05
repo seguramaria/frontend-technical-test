@@ -35,13 +35,8 @@ export const Search = ({ isResultsPage, searchQuery }: Props) => {
       className={`${styles.form} ${isResultsPage ? styles.formResults : ""}`}
     >
       <div className={styles.formBox}>
-        <Image
-          src="/search.svg"
-          alt="Search Icon"
-          className={styles.searchIcon}
-          width={40}
-          height={32}
-        />
+        <Image src="/search.svg" alt="Search Icon" width={24} height={24} />
+
         <input
           type="search"
           className={styles.input}

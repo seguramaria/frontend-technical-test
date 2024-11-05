@@ -18,14 +18,11 @@
   border: 1px solid lightgray;
   border-radius: 1.5rem;
   max-width: 584px;
+  padding-left: 0.75rem;
 }
 
 .input {
   width: 100%;
-  padding: 0.25rem 0.5rem;
-}
-
-.searchIcon {
   padding: 0.25rem 0.5rem;
 }
 
