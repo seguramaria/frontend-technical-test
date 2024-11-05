@@ -5,11 +5,11 @@ export const usePagination = (
   results: AnimalResult[],
   resultsPerPage: number
 ) => {
-  const [currentPage, setCurrentPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
   const [paginatedResults, setPaginatedResults] = useState<AnimalResult[]>([]);
 
   useEffect(() => {
-    const start = currentPage * resultsPerPage;
+    const start = (currentPage - 1) * resultsPerPage;
     const end = start + resultsPerPage;
     setPaginatedResults(results.slice(start, end));
   }, [currentPage, results, resultsPerPage]);
@@ -23,7 +23,7 @@ export const usePagination = (
   };
 
   const handlePrevPage = () => {
-    setCurrentPage((prevPage) => Math.max(prevPage - 1, 0));
+    setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
   };
 
   return {
@@ -31,7 +31,7 @@ export const usePagination = (
     paginatedResults,
     handleNextPage,
     handlePrevPage,
-    disableNextButton: (currentPage + 1) * resultsPerPage >= results.length,
-    disablePrevButton: currentPage === 0,
+    disableNextButton: currentPage * resultsPerPage >= results.length,
+    disablePrevButton: currentPage === 1,
   };
 };

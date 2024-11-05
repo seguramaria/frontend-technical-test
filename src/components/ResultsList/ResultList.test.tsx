@@ -13,6 +13,10 @@ jest.mock("@/components/ResultPreview/ResultPreview", () => ({
   ResultPreview: jest.fn(({ description }) => <div>{description}</div>),
 }));
 
+beforeAll(() => {
+  window.scrollTo = jest.fn();
+});
+
 describe("ResultList", () => {
   const mockResults = [
     {

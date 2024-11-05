@@ -21,7 +21,7 @@ describe("usePagination", () => {
 
   it("initializes correctly on the first page", () => {
     const { result } = renderHook(() => usePagination(mockData, 10));
-    expect(result.current.currentPage).toBe(0);
+    expect(result.current.currentPage).toBe(1);
     expect(result.current.paginatedResults.length).toBe(10);
     expect(result.current.paginatedResults[0].title).toBe("Animal 1");
   });
@@ -33,7 +33,7 @@ describe("usePagination", () => {
       result.current.handleNextPage();
     });
 
-    expect(result.current.currentPage).toBe(1);
+    expect(result.current.currentPage).toBe(2);
     expect(result.current.paginatedResults[0].title).toBe("Animal 11");
   });
 
@@ -48,7 +48,7 @@ describe("usePagination", () => {
       result.current.handlePrevPage();
     });
 
-    expect(result.current.currentPage).toBe(0);
+    expect(result.current.currentPage).toBe(1);
     expect(result.current.paginatedResults[0].title).toBe("Animal 1");
   });
 
