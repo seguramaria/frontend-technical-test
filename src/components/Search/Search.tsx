@@ -1,6 +1,7 @@
 import { FormEvent, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import styles from "./Search.module.css";
+import Image from "next/image";
 
 type Props = {
   isResultsPage?: boolean;
@@ -34,10 +35,12 @@ export const Search = ({ isResultsPage, searchQuery }: Props) => {
       className={`${styles.form} ${isResultsPage ? styles.formResults : ""}`}
     >
       <div className={styles.formBox}>
-        <img
-          src={"search.svg"}
+        <Image
+          src="/search.svg"
           alt="Search Icon"
           className={styles.searchIcon}
+          width={40}
+          height={32}
         />
         <input
           type="search"

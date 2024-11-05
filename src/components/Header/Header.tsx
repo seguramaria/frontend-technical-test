@@ -45,11 +45,12 @@ export const Header = ({ isResultsPage, searchQuery }: Props) => {
           width={24}
           height={24}
         />
-        <div className={styles.avatarContainer}>
-          <img
+        <div>
+          <Image
             src="/avatar.svg"
             alt="Account settings"
-            className={styles.avatar}
+            width={30}
+            height={30}
           />
         </div>
       </div>

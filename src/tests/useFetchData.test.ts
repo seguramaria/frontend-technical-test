@@ -1,4 +1,4 @@
-import { act, renderHook } from "@testing-library/react";
+import { renderHook } from "@testing-library/react";
 import { useFetchData } from "@/hooks/useFetchData";
 import fetchData from "@/utils/getAnimals";
 import { AnimalResult } from "@/types";

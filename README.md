@@ -1,40 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# FRONTEND TECHNICAL TEST
 
-## Getting Started
+The objective of this project is to showcase my technical and organizational skills by developing a functional and well-structured application according to the test specifications.
 
-First, run the development server:
+## Test Specifications
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The test required the development of a simple application with two main pages: a Homepage for searching animals and a Results Page for displaying the search results. Key features included a search input, result display, pagination, and error handling for various scenarios. Additionally, the application had to be styled without the use of external UI libraries, and data was to be generated using faker.js.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Approach and Implemented Solutions
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### Use of Next.js
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Although not explicitly required, I chose Next.js for this project due to several production-ready benefits. Next.js supports server-side rendering (SSR) and static generation, which significantly improve load times.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+### Enhanced Image Handling
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+While it wasn’t required, I used the option provided by faker.js to display animals that match the type of the search rather than showing completely random animals. This makes the visuals more relevant to the user's search.
 
-## Learn More
+### Pagination System
 
-To learn more about Next.js, take a look at the following resources:
+Rather than showing all 100 animals at once, I implemented a frontend pagination system that allows users to view 10 animals per page. This approach improves readability and enhances the user experience as they can navigate through the dataset more easily.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+### Custom Hooks for Code Reusability
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+To keep the codebase organized and modular, I created custom hooks to handle both fetchData and pagination. These hooks allow for reusability and a clean separation of logic, making it easy to use the same data-fetching and pagination functions on both the homepage and the results page.
 
-## Deploy on Vercel
+## Possible Improvements with More Time
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+With additional time, I would have liked to:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+- **Implement Authentication**: Adding an authentication system would enable the display of user information in the header and allow for potential user-specific features.
+- **Extend Search Capabilities**: Currently, the search filters animals by type. Expanding this to include other attributes would enhance user experience.
+- **Localization and Language Detection**: The application currently displays the "Buscar" button in Spanish and the error message "Try looking for:" in English, as per the test instructions. With more time, I would implement full localization using i18n and detect the user’s browser language to present the entire app in the user’s preferred language for a more cohesive experience.
+- **Additional Testing**: I have written extensive test cases to cover the main components and functionalities of the application. With extra time, I would further expand the tests to ensure complete coverage of edge cases and to optimize for reliability.
+
+## Installation and Running the Project
+
+To install and run the project, follow these steps:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/seguramaria/frontend-technical-test.git
+   ```
+2. Navigate into the project directory:
+   ```bash
+   cd frontend-technical-test
+   ```
+3. Install the dependencies:
+
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   ```
+
+4. Start the development server:
+
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   ```
+
+5. Open http://localhost:3000 in your browser to see the application in action.
