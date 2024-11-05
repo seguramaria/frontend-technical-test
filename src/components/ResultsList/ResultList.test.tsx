@@ -49,7 +49,7 @@ describe("ResultList", () => {
       />
     );
     expect(getByText("No results found for")).toBeInTheDocument();
-    expect(getByText('"dinosaur"')).toBeInTheDocument();
+    expect(getByText("dinosaur")).toBeInTheDocument();
   });
 
   it("renders results correctly", () => {
