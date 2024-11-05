@@ -1,6 +1,5 @@
 .card {
-  width: 100%;
-  max-width: 400px;
+  width: 300px;
   background-color: white;
   border: 1px solid lightgray;
   overflow: hidden;
@@ -32,4 +31,17 @@
 .description {
   font-size: 1rem;
   line-height: 1.4;
+}
+
+@media (min-width: 425px) {
+  .card {
+    width: 400px;
+  }
+}
+
+@media (min-width: 991px) {
+  .card {
+    width: 100%;
+    max-width: 400px;
+  }
 }
