@@ -20,6 +20,7 @@ export const Header = ({ isResultsPage, searchQuery }: Props) => {
               className={styles.logo}
               width={92}
               height={33}
+              style={{ width: "auto", height: "auto" }}
               priority
             />
           </Link>

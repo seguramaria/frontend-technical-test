@@ -32,8 +32,10 @@
 
 .logo {
   padding-top: 4px;
+  width: 92px;
+  height: auto;
+  max-height: 33px;
 }
-
 .accountContainer {
   display: flex;
   align-items: center;
