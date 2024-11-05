@@ -16,7 +16,7 @@ describe("useFetchData hook", () => {
   test("returns initial state correctly", () => {
     const { result } = renderHook(() => useFetchData());
     expect(result.current.results).toEqual([]);
-    expect(result.current.isLoading).toBe(false);
+    expect(result.current.isLoading).toBe(true);
     expect(result.current.error).toBeNull();
     expect(result.current.animalTypes.length).toBeGreaterThan(0);
   });

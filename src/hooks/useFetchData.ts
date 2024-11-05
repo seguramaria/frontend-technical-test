@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 
 export const useFetchData = (searchQuery?: string) => {
   const [results, setResults] = useState<AnimalResult[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const animalTypes = Object.keys(faker.animal).slice(1, -1);
 
