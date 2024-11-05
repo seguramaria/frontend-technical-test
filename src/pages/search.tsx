@@ -11,7 +11,9 @@ export default function SearchResults() {
   const searchParams = useSearchParams();
   const searchQuery = searchParams.get("q") || undefined;
 
-  const { results, isLoading, error, animalTypes } = useFetchData(searchQuery);
+  const { results, isLoading, error, animalTypes } = useFetchData(
+    searchQuery?.toLocaleLowerCase()
+  );
   const {
     currentPage,
     paginatedResults,
