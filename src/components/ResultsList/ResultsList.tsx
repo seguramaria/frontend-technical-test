@@ -35,7 +35,10 @@ export const ResultList = ({
 
   const handleSelect = (id: number) => {
     const item = paginatedResults.find((result) => result.id === id);
-    if (item) return setSelectedItem(item);
+    if (item) {
+      setSelectedItem(item);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
 
   const handleClosePreview = () => {

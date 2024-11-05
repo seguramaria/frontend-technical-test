@@ -16,6 +16,12 @@
   color: #0000cd;
 }
 
+.list:hover {
+  .title {
+    text-decoration: underline;
+  }
+}
+
 .description {
   font-size: 1rem;
 }
