@@ -39,8 +39,7 @@ export const ResultList = ({
         <div className={styles.errorContainer}>
           {searchQuery && (
             <p>
-              {error}{" "}
-              <span className={styles.searchQuery}>"{searchQuery}"</span>
+              {error} <span className={styles.searchQuery}>{searchQuery}</span>
             </p>
           )}
           <p>
