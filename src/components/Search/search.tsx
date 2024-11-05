@@ -20,7 +20,7 @@ export const Search = ({ isResultsPage, searchQuery }: Props) => {
   ) => {
     event.preventDefault();
     if (searchValue) {
-      router.push(`/search?q=${searchValue}`);
+      router.push(`/search?q=${encodeURIComponent(searchValue)}`);
     }
   };
 

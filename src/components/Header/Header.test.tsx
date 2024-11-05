@@ -4,9 +4,7 @@ import mockRouter from "next-router-mock";
 
 jest.mock("next/navigation", () => ({
   useRouter() {
-    return {
-      prefetch: () => null,
-    };
+    return {};
   },
 }));
 
