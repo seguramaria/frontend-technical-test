@@ -33,7 +33,9 @@ export const ResultList = ({
 
   return (
     <div className={styles.resultsContainer}>
-      {error || searchQuery === undefined ? (
+      {isLoading ? (
+        <Skeleton />
+      ) : error || searchQuery === undefined ? (
         <div className={styles.errorContainer}>
           {searchQuery && (
             <p>
@@ -48,45 +50,46 @@ export const ResultList = ({
         </div>
       ) : (
         <>
-          {isLoading ? (
-            <Skeleton />
-          ) : (
-            <>
-              <ul className={styles.resultsList}>
-                {results.map((result) => (
-                  <ResultItem
-                    key={result.id}
-                    id={result.id}
-                    url={result.url}
-                    title={result.title}
-                    description={result.description}
-                    handleSelect={(id) => handleSelect(id)}
-                  />
-                ))}
-              </ul>
-              <div className={styles.resultPreviewContainer}>
-                {selectedItem && (
-                  <ResultPreview
-                    img={selectedItem.image}
-                    url={selectedItem.url}
-                    title={selectedItem.title}
-                    description={selectedItem.description}
-                  />
-                )}
+          <ul className={styles.resultsList}>
+            {results.map((result) => (
+              <ResultItem
+                key={result.id}
+                id={result.id}
+                url={result.url}
+                title={result.title}
+                description={result.description}
+                handleSelect={(id) => handleSelect(id)}
+              />
+            ))}
+          </ul>
+          <div
+            className={styles.resultPreviewContainer}
+            data-testid="preview-desktop"
+          >
+            {selectedItem && (
+              <ResultPreview
+                img={selectedItem.image}
+                url={selectedItem.url}
+                title={selectedItem.title}
+                description={selectedItem.description}
+              />
+            )}
+          </div>
+          {selectedItem && (
+            <div
+              className={styles.overlay}
+              onClick={handleClosePreview}
+              data-testid="preview-mobile"
+            >
+              <div className={styles.resultPreview}>
+                <ResultPreview
+                  img={selectedItem.image}
+                  url={selectedItem.url}
+                  title={selectedItem.title}
+                  description={selectedItem.description}
+                />
               </div>
-              {selectedItem && (
-                <div className={styles.overlay} onClick={handleClosePreview}>
-                  <div className={styles.resultPreview}>
-                    <ResultPreview
-                      img={selectedItem.image}
-                      url={selectedItem.url}
-                      title={selectedItem.title}
-                      description={selectedItem.description}
-                    />
-                  </div>
-                </div>
-              )}
-            </>
+            </div>
           )}
         </>
       )}
