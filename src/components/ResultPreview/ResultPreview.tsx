@@ -17,7 +17,7 @@ export const ResultPreview = ({ img, url, title, description }: Props) => {
           alt={`${title} img`}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 30vw"
-          style={{ objectFit: "cover", padding: "8px 8px 0 8px" }}
+          style={{ objectFit: "cover", padding: "1rem 0.5rem 0 0.5rem" }}
           priority
           placeholder="empty"
         />
