@@ -3,22 +3,29 @@
 The objective of this project is to showcase my technical and organizational skills by developing a functional and well-structured application according to the test specifications.
 
 ## Test Specifications
+This test required the development of a simple application with two main pages: a **Homepage** for searching animals and a **Results Page** for displaying the search results. Key features include:
 
-The test required the development of a simple application with two main pages: a Homepage for searching animals and a Results Page for displaying the search results. Key features included a search input, result display, pagination, and error handling for various scenarios. Additionally, the application had to be styled without the use of external UI libraries, and data was to be generated using faker.js.
-
+- A search input
+- Result display
+- Error handling for various scenarios
+  
+Additionally, the application had to be styled without using external UI libraries, and data was generated using `faker.js`.
 ## Approach and Implemented Solutions
 
 ### Use of Next.js
 
-Although not explicitly required, I chose Next.js for this project due to several production-ready benefits. Next.js supports server-side rendering (SSR) and static generation, which significantly improve load times.
+Although not explicitly required, I chose Next.js due to its production-ready features, including server-side rendering (SSR) and static generation, which significantly improve load times.
 
 ### Enhanced Image Handling
 
 While it wasn’t required, I used the option provided by faker.js to display animals that match the type of the search rather than showing completely random animals. This makes the visuals more relevant to the user's search.
+![Captura de pantalla 2024-11-06 092946](https://github.com/user-attachments/assets/55bfc4c8-e36f-4952-8a7c-533e268a2fda)
 
 ### Pagination System
 
 Rather than showing all 100 animals at once, I implemented a frontend pagination system that allows users to view 10 animals per page. This approach improves readability and enhances the user experience as they can navigate through the dataset more easily.
+![Grabación de pantalla 2024-11-06 092744](https://github.com/user-attachments/assets/dd5497c6-f888-4c3a-a7f9-84ec6dde00b7)
+
 
 ### Custom Hooks for Code Reusability
 
@@ -66,3 +73,8 @@ To install and run the project, follow these steps:
    ```
 
 5. Open http://localhost:3000 in your browser to see the application in action.
+
+6. To run unit tests in this project execute the following command:
+   ```bash
+   npm test
+   ```
