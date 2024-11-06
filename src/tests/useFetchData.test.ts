@@ -13,12 +13,14 @@ describe("useFetchData hook", () => {
     jest.clearAllMocks();
   });
 
-  test("returns initial state correctly", () => {
+  test("returns initial state correctly", async () => {
     const { result } = renderHook(() => useFetchData());
-    expect(result.current.results).toEqual([]);
-    expect(result.current.isLoading).toBe(true);
-    expect(result.current.error).toBeNull();
-    expect(result.current.animalTypes.length).toBeGreaterThan(0);
+    await waitFor(() => {
+      expect(result.current.results).toEqual([]);
+      expect(result.current.isLoading).toBe(false);
+      expect(result.current.error).toBeNull();
+      expect(result.current.animalTypes.length).toBeGreaterThan(0);
+    });
   });
 
   test("sets isLoading to true when a search query is provided", async () => {

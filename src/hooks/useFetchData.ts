@@ -13,7 +13,7 @@ export const useFetchData = (searchQuery?: string) => {
     setIsLoading(true);
     setError(null);
     try {
-      if (animalTypes.includes(searchQuery)) {
+      if (searchQuery && animalTypes.includes(searchQuery)) {
         const fetchedResults = await fetchData(searchQuery as AnimalKey);
         setResults(fetchedResults);
       } else {
@@ -29,6 +29,8 @@ export const useFetchData = (searchQuery?: string) => {
   useEffect(() => {
     if (searchQuery) {
       loadResults(searchQuery);
+    } else {
+      setIsLoading(false);
     }
   }, [searchQuery]);
 
