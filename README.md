@@ -24,6 +24,7 @@ While it wasn’t required, I used the option provided by faker.js to display an
 ### Pagination System
 
 Rather than showing all 100 animals at once, I implemented a frontend pagination system that allows users to view 10 animals per page. This approach improves readability and enhances the user experience as they can navigate through the dataset more easily.
+
 ![Grabación de pantalla 2024-11-06 092744](https://github.com/user-attachments/assets/dd5497c6-f888-4c3a-a7f9-84ec6dde00b7)
 
 
