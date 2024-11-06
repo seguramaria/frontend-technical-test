@@ -2,6 +2,7 @@
 
 The objective of this project is to showcase my technical and organizational skills by developing a functional and well-structured application according to the test specifications.
 
+
 ## Test Specifications
 This test required the development of a simple application with two main pages: a **Homepage** for searching animals and a **Results Page** for displaying the search results. Key features include:
 
@@ -40,6 +41,8 @@ With additional time, I would have liked to:
 - **Extend Search Capabilities**: Currently, the search filters animals by type. Expanding this to include other attributes would enhance user experience.
 - **Localization and Language Detection**: The application currently displays the "Buscar" button in Spanish and the error message "Try looking for:" in English, as per the test instructions. With more time, I would implement full localization using i18n and detect the user’s browser language to present the entire app in the user’s preferred language for a more cohesive experience.
 - **Additional Testing**: I have written extensive test cases to cover the main components and functionalities of the application. With extra time, I would further expand the tests to ensure complete coverage of edge cases and to optimize for reliability.
+
+🚀 **Go to the:** [Preview](https://google-agile-content.vercel.app/)
 
 ## Installation and Running the Project
 
