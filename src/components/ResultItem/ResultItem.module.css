@@ -3,7 +3,6 @@
   flex-direction: column;
   gap: 0.5rem;
   padding: 1rem;
-  cursor: pointer;
 }
 
 .url {
@@ -13,13 +12,12 @@
 .title {
   font-size: 1.25rem;
   font-weight: 500;
+  cursor: pointer;
   color: #0000cd;
 }
 
-.list:hover {
-  .title {
-    text-decoration: underline;
-  }
+.title:hover {
+  text-decoration: underline;
 }
 
 .description {
